@@ -1454,3 +1454,20 @@ html, body {
     transform: translateY(0);
     visibility: visible;
 }
+
+
+
+
+
+/* Mobile aur Tablet par Custom Cursor Gayab */
+@media (max-width: 900px) {
+    .cursor-dot, 
+    .cursor-outline {
+        display: none !important;
+    }
+    
+    /* Asli mouse wapis le aao mobile touch ke liye */
+    body, a, button, input, textarea {
+        cursor: auto !important;
+    }
+}

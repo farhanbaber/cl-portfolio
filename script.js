@@ -141,32 +141,38 @@ form.addEventListener('submit', function(e) {
         });
 });
 
-
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorOutline = document.querySelector(".cursor-outline");
 
-window.addEventListener("mousemove", function (e) {
-    const posX = e.clientX;
-    const posY = e.clientY;
+// Check karo ke screen laptop/desktop wali hai (900px se bari)
+if (window.innerWidth > 900) {
+    window.addEventListener("mousemove", function (e) {
+        const posX = e.clientX;
+        const posY = e.clientY;
 
-    // Dot foran move karega
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
+        // Dot foran move karega
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
 
-    // Outline halka sa delay ke sath piche ayega (Smoothness)
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
-});
-
-// Hover Effect on Links & Buttons
-const links = document.querySelectorAll('a, button, .dr-s-link');
-links.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        cursorOutline.classList.add('cursor-active');
+        // Outline halka sa delay ke sath piche ayega (Smoothness)
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
     });
-    link.addEventListener('mouseleave', () => {
-        cursorOutline.classList.remove('cursor-active');
+
+    // Hover Effect on Links & Buttons
+    const links = document.querySelectorAll('a, button, .dr-s-link');
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            cursorOutline.classList.add('cursor-active');
+        });
+        link.addEventListener('mouseleave', () => {
+            cursorOutline.classList.remove('cursor-active');
+        });
     });
-});
+} else {
+    // Agar mobile hai to cursor elements ko permanently hide kar do
+    cursorDot.style.display = "none";
+    cursorOutline.style.display = "none";
+}
