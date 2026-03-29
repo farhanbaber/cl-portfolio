@@ -7,9 +7,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="assets/logs.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="dr-loader-container" id="page-loader">
+    <div class="loader-content-box">
+        <div class="loader-logo-img">
+            <img src="assets/logs.png" alt="DR. RAMHSA Logo">
+        </div>
+        
+        <div class="mini-line-loader">
+            <div class="line-fill"></div>
+        </div>
+    </div>
+</div>
+
+<div class="dr-right-socials-wrapper">
+    <a href="https://wa.me/923123456789" target="_blank" class="dr-s-link wa"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" target="_blank" class="dr-s-link ig"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank" class="dr-s-link li"><i class="fab fa-linkedin-in"></i></a>
+    <div class="dr-sidebar-line"></div>
+</div>
 
     <nav class="dr-nav-main">
         <div class="dr-container">
@@ -68,7 +87,7 @@
 
     <!-- end section -->
 
-    <section class="premium-about" id="about">
+    <section class="premium-about reveal" id="about">
     <div class="lux-container">
         <div class="about-wrapper">
             
@@ -86,7 +105,7 @@
 
             <div class="about-text-side">
                 <span class="dr-badge">About My Journey</span>
-                <h2 class="lux-title">Crafting a Legacy of <span>Healing & Care</span></h2>
+                <h2 class="lux-title">Crafting a Legacy of <span>Healing & Care</span> With <span>Dr.Ramsha</span></h2>
                 
                 <p class="main-bio">
                     My path started with a simple goal: to understand the art of human movement. From my foundational <strong>School & College</strong> days to the clinical rigors of <strong>University</strong>, every step has been about excellence.
@@ -125,7 +144,7 @@
 
 
     <!-- end section -->
-<section class="services-section">
+<section class="services-section reveal">
     <div class="container">
         <div class="services-header">
             <span class="badge">Welcome To Us</span>
@@ -153,13 +172,15 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
         </div>
 
         <div class="services-footer">
-            <a href="#" class="btn-readmore">Read More</a>
-        </div>
+    <a href="assets/farhan-baber-cv.pdf" class="btn-readmore" download="Farhan_Baber_CV">
+        Download CV <i class="fas fa-download" style="margin-left: 8px;"></i>
+    </a>
+</div>
     </div>
 </section>
 
 <!-- end section -->
- <section class="experience-section">
+ <section class="experience-section reveal">
     <div class="container">
         <div class="experience-header">
             <span class="badge">Professional Roadmap</span>
@@ -180,35 +201,33 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
                 <div class="entry-dot"></div>
                 <div class="entry-card">
                     <div class="entry-date"><i class="far fa-calendar-alt"></i> 2025 - 2027</div>
-                    <h3>FSC - PRE-ENGINEERING</h3>
-                    <p id="psl">Currently pursuing Pre-Engineering to strengthen analytical skills and mathematical foundations at a high level.</p>
-                </div>
+                    <h3>FSC - PRE-MEDICAL</h3>
+<p id="psl">Currently pursuing Pre-Medical with a focus on Biological Sciences and Clinical foundations to build a strong base for my professional medical career.</p>                </div>
             </div>
 
             <div class="timeline-entry">
                 <div class="entry-dot"></div>
                 <div class="entry-card">
                     <div class="entry-date"><i class="far fa-calendar-alt"></i> 2025 - 2026</div>
-                    <h3>DIPLOMA IN IT</h3>
-                    <p id="psl">Focusing on software development and modern web technologies to build a solid technical base for the future.</p>
-                </div>
+                    <h3>BS-IN-DPT</h3>
+<p id="psl">Currently pursuing a Bachelor of Science in Physical Therapy (DPT), focusing on human anatomy, clinical rehabilitation, and advanced therapeutic techniques to provide expert patient care.</p>                </div>
             </div>
 
-            <div class="timeline-entry">
+            <!-- <div class="timeline-entry">
                 <div class="entry-dot"></div>
                 <div class="entry-card">
                     <div class="entry-date"><i class="far fa-calendar-alt"></i> 2026 - Present</div>
                     <h3>FULL STACK DEVELOPMENT</h3>
                     <p id="psl">Specializing in MERN stack and AI integration to create high-end premium digital solutions.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
 <!-- end section -->
 
 
-<section class="pricing-section">
+<section class="pricing-section reveal">
     <div class="container">
         <div class="experience-header">
             <span class="badge">Choose Your Plan</span>
@@ -262,7 +281,7 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
 <!--  end section -->
 
 
-<section class="testimonial-section">
+<section class="testimonial-section reveal">
     <div class="container">
         <div class="experience-header">
             <span class="badge">Success Stories</span>
@@ -311,9 +330,7 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
         </div>
     </div>
 </section>
-
-
-<section class="contact-section" id="contact">
+<section class="contact-section reveal" id="contact">
     <div class="container">
         <div class="contact-header">
             <span class="badge">Get In Touch</span>
@@ -324,9 +341,18 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
         <div class="contact-grid">
             <!-- Left Side: Professional Form -->
             <div class="contact-form-card">
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <!-- Action aur Method yahan set hain -->
+                <form action="https://api.web3forms.com/submit" method="POST" id="appointment-form">
                     
+                    <!-- 1. Apni Access Key Yahan Dalo -->
+                    <input type="hidden" name="access_key" value="f136d268-8669-4819-945d-63d29b8361c5">
+                    
+                    <!-- 2. Email Subject jo tumhain inbox mein dikhega -->
+                    <input type="hidden" name="subject" value="New Appointment Request - Dr. Ramhsa">
+                    
+                    <!-- 3. Honeypot (Spam rokne ke liye) -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                     <div class="input-group">
                         <label>Your Name</label>
                         <input type="text" name="name" placeholder="Enter your full name" required>
@@ -347,17 +373,20 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
                         <textarea name="message" placeholder="Briefly describe your pain or condition..." required></textarea>
                     </div>
 
+                    <!-- Submit Button -->
                     <button type="submit" class="submit-btn">
                         SEND REQUEST <i class="fas fa-paper-plane"></i>
                     </button>
+
+                    <!-- Success/Error Message Container -->
+                    <div id="result" style="margin-top: 15px; font-weight: 500;"></div>
                 </form>
             </div>
 
-            <!-- Right Side: Clinic Info & Hours -->
+            <!-- Right Side: Clinic Info (Wahi purana code) -->
             <div class="contact-info-column">
                 <div class="info-box-modern">
                     <h3>Clinic Information</h3>
-                    
                     <div class="contact-item">
                         <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="item-text">
@@ -365,7 +394,6 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
                             <p>Phase 7, Hayatabad, Peshawar, Pakistan</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
                         <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
                         <div class="item-text">
@@ -377,27 +405,15 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
 
                 <div class="timings-card">
                     <h3><i class="far fa-clock"></i> Working Hours</h3>
-                    <div class="time-row">
-                        <span>Mon - Fri:</span>
-                        <span>09:00 AM - 08:00 PM</span>
-                    </div>
-                    <div class="time-row">
-                        <span>Saturday:</span>
-                        <span>10:00 AM - 04:00 PM</span>
-                    </div>
-                    <div class="time-row closed">
-                        <span>Sunday:</span>
-                        <span>OFF (Emergencies Only)</span>
-                    </div>
-                    <div class="emergency-tag">
-                        Available 24/7 for critical cases
-                    </div>
+                    <div class="time-row"><span>Mon - Fri:</span> <span>09:00 AM - 08:00 PM</span></div>
+                    <div class="time-row"><span>Saturday:</span> <span>10:00 AM - 04:00 PM</span></div>
+                    <div class="time-row closed"><span>Sunday:</span> <span>OFF (Emergencies Only)</span></div>
+                    <div class="emergency-tag">Available 24/7 for critical cases</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <footer class="final-footer">
     <div class="container">
         <div class="footer-bottom-content">
@@ -406,6 +422,7 @@ Aspiring to become a skilled and licensed physiotherapist. Dedicated to continuo
         </div>
     </div>
 </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

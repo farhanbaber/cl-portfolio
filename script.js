@@ -1,4 +1,22 @@
 // Sidebar & Hamburger X
+/* ========================================
+   DR. RAMHSA LOADER HIDING LOGIC
+======================================== */
+
+// Is logic ko call karna jab page puri tarah load ho jaye
+window.addEventListener('load', function() {
+    const loader = document.getElementById('page-loader');
+    
+    // Smooth transition ke sath loader ko hide karo
+    if (loader) {
+        // Halka sa delay agar smooth load chahiye (optional: set to 0)
+        setTimeout(() => {
+            loader.classList.add('loader-hidden');
+        }, 2000); // 2 seconds ka initial display (pulse aur logo entry ke liye)
+    }
+});
+
+
 const ham = document.getElementById('dr-ham');
 const menu = document.getElementById('dr-menu');
 
@@ -38,4 +56,87 @@ document.querySelectorAll('.dr-link, .dr-contact-btn').forEach(link => {
         menu.classList.remove('active');
         ham.classList.remove('is-active');
     });
+});
+
+
+// animation for timeline entries
+window.addEventListener('load', function() {
+    const loader = document.getElementById('page-loader');
+    const heroSection = document.querySelector('.dr-hero');
+
+    if (loader) {
+        setTimeout(() => {
+            loader.classList.add('loader-hidden');
+            
+            // Loader hatne ke foran baad animation start
+            setTimeout(() => {
+                heroSection.classList.add('reveal-hit');
+            }, 300); // Halka sa gap for smooth transition
+            
+        }, 2000); 
+    }
+});
+
+
+const scrollReveal = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Agar section 15% bhi screen par nazar aye to trigger ho jaye
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    // Tamam sections jin mein 'reveal' class hai unhein observe karo
+    document.querySelectorAll('.reveal').forEach(section => {
+        observer.observe(section);
+    });
+};
+
+// Page load hone par function chalao
+document.addEventListener('DOMContentLoaded', scrollReveal);
+
+
+// api
+const form = document.getElementById('appointment-form');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+  result.innerHTML = "Please wait...";
+  result.style.color = "#4ac7f2";
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                result.innerHTML = "Request Sent Successfully!";
+                result.style.color = "green";
+                form.reset();
+            } else {
+                console.log(response);
+                result.innerHTML = json.message;
+                result.style.color = "red";
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+        })
+        .then(function() {
+            setTimeout(() => {
+                result.innerHTML = "";
+            }, 5000);
+        });
 });

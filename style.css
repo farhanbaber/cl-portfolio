@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Arizonia&family=Carter+One&family=Caveat:wght@400..700&family=Cinzel:wght@400..900&family=Dancing+Script:wght@700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 /* --- Global Overflow Fix --- */
+
+
 html, body {
     max-width: 100%;
     overflow-x: hidden; /* Horizontal scroll ko khatam kar dega */
@@ -26,6 +28,93 @@ html, body {
     overflow-x: hidden; 
     background: #fff;
     scroll-behavior: smooth;
+}
+
+/* --- Aesthetic Logo Loader Styles --- */
+.dr-loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff; /* Clean white background */
+    z-index: 10000; /* Super high priority */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease-out, visibility 0.6s;
+    overflow: hidden;
+}
+
+/* Base style for hiding loader */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Allows user to interact with site underneath */
+}
+
+.loader-content-box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Space between logo and line */
+    opacity: 0;
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Logo Image Styling */
+.loader-logo-img {
+    width: 200px; /* Aesthetic width */
+    height: auto;
+}
+
+.loader-logo-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mini Line Container */
+.mini-line-loader {
+    width: 120px; /* Choti aur classy line */
+    height: 3px; /* Patli line */
+    background: #f0f0f0; /* Faint background line */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* The Blue Fill Animation */
+.line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: #4ac7f2; /* Your medical theme blue */
+    border-radius: 10px;
+    animation: fill-line 2.5s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+}
+
+/* --- Keyframe Animations --- */
+
+/* Content entry animation */
+@keyframes fade-in-up {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Line filling animation */
+@keyframes fill-line {
+    0% { width: 0%; }
+    50% { width: 70%; } /* Slower middle phase */
+    100% { width: 100%; }
+}
+
+/* --- Responsive (Mobile Fix) --- */
+@media (max-width: 576px) {
+    .loader-logo-img { width: 150px; }
+    .mini-line-loader { width: 90px; }
 }
 
 /* Navbar - Height Fixed */
@@ -381,6 +470,16 @@ html, body {
 
 /* en section */
 /* --- LUXURY SERVICES SECTION --- */
+.btn-readmore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-readmore:hover i {
+    transform: translateY(3px); /* Icon thoda niche move hoga click karne ke liye */
+}
 .dr-services {
     padding: 120px 0;
     background: #fbfcfd; /* Very subtle light grey for contrast */
@@ -1144,4 +1243,172 @@ html, body {
         font-size: 0.85rem;
         line-height: 1.5;
     }
+}
+
+/* ========================================
+   RIGHT SIDEBAR SOCIALS - CSS
+======================================== */
+
+.dr-right-socials-wrapper {
+    position: fixed;
+    right: 40px; /* Ab ye RIGHT par hai */
+    bottom: 0;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    z-index: 9998;
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards 1.5s;
+}
+
+.dr-s-link {
+    font-size: 1.4rem;
+    color: #333;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+/* Hover effect with your Blue Theme */
+.dr-s-link:hover {
+    color: #4ac7f2;
+    transform: translateY(-8px) scale(1.1);
+}
+
+/* Vertical Line */
+.dr-sidebar-line {
+    width: 2px;
+    height: 100px;
+    background: #4ac7f2; /* Medical Blue Line */
+    margin-top: 15px;
+    border-radius: 10px;
+    opacity: 0.6;
+}
+
+/* Entrance Animation */
+@keyframes fade-in-up {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ========================================
+   RESPONSIVE (Mobile & Tablet)
+======================================== */
+
+/* Tablets par thoda kareeb */
+@media (max-width: 1024px) {
+    .dr-right-socials-wrapper {
+        right: 20px;
+    }
+}
+
+/* Mobile par Bottom Horizontal Strip */
+@media (max-width: 768px) {
+    .dr-right-socials-wrapper {
+        position: relative;
+        right: 0;
+        flex-direction: row;
+        justify-content: center;
+        padding: 40px 0;
+        width: 100%;
+        background: #ffffff;
+        gap: 40px; /* Mobile par buttons ke beech gap zarori hai */
+    }
+
+    .dr-sidebar-line {
+        display: none; /* Mobile par line ki zarorat nahi */
+    }
+
+    .dr-s-link {
+        font-size: 1.6rem;
+    }
+}
+
+
+
+
+
+
+/* animation */
+
+
+/* --- Ultra Hit Animations --- */
+
+/* 1. Initial State (Chupa hua) */
+.dr-hero-left > *, 
+.dr-hero-right {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 2. Right Frame Special State */
+.dr-hero-right {
+    transform: scale(0.8) rotate(2deg);
+}
+
+/* 3. Reveal Class (Triggered by JS) */
+.reveal-hit .dr-hero-left > * {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.reveal-hit .dr-hero-right {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1) rotate(0);
+}
+
+/* 4. Staggered Delays (Sequence) */
+.reveal-hit .dr-badge { transition-delay: 0.2s; }
+.reveal-hit h1 { transition-delay: 0.4s; }
+.reveal-hit #p-1 { transition-delay: 0.6s; }
+.reveal-hit .dr-action-row { transition-delay: 0.8s; }
+.reveal-hit .dr-hero-right { transition-delay: 1s; }
+
+/* 5. Floating Animation for Promo (Always Moving) */
+.dr-promo {
+    animation: floaty 3s ease-in-out infinite;
+}
+
+@keyframes floaty {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -15px); }
+}
+
+.dr-hero h1 span {
+    color: #4ac7f2; /* Tumhara Professional Blue */
+    position: relative;
+    display: inline-block;
+}
+
+/* "Alive" ke niche choti aesthetic line */
+.dr-hero h1 span:last-child::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(74, 199, 242, 0.2);
+    z-index: -1;
+}
+
+/* --- Global Scroll Fade-Up --- */
+
+/* Initial State: Chupa hua aur thoda niche */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    visibility: hidden;
+}
+
+/* Active State: Jab scroll karke samne aye */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
 }
