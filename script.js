@@ -176,3 +176,25 @@ if (window.innerWidth > 900) {
     cursorDot.style.display = "none";
     cursorOutline.style.display = "none";
 }
+
+
+
+
+const backToTopBtn = document.querySelector("#backToTop");
+
+window.addEventListener("scroll", () => {
+    // Agar user 300px niche scroll kare to button dikhao
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add("show");
+    } else {
+        backToTopBtn.classList.remove("show");
+    }
+});
+
+// Click karne par Smoothly upar le jaye
+backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
