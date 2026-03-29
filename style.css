@@ -1,7 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Arizonia&family=Carter+One&family=Caveat:wght@400..700&family=Cinzel:wght@400..900&family=Dancing+Script:wght@700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 /* --- Global Overflow Fix --- */
 
+/* Asli Mouse Hide Karo */
+body, a, button, input, textarea {
+    cursor: none !important;
+}
 
+/* Chota White Dot */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(67, 168, 219, 0.763);
+    box-shadow: 0 0 10px rgba(35, 201, 231, 0.8);
+}
+
+/* Bahar wala Outline Ring */
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(32, 127, 216, 0.5);
+    transition: transform 0.15s ease-out; /* Is se smoothness aati hai */
+}
+
+.cursor-dot, .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 99999;
+    pointer-events: none; /* Taake clicks niche wale buttons par lagain */
+}
+
+/* Jab kisi link par mouse jaye (Hover Effect) */
+.cursor-active {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(74, 199, 242, 0.3) !important; /* Medical Blue Tint */
+    border: none !important;
+}
 html, body {
     max-width: 100%;
     overflow-x: hidden; /* Horizontal scroll ko khatam kar dega */
@@ -248,6 +284,9 @@ html, body {
     .dr-hero-left p { margin: 0 auto 20px; }
     .dr-square-frame { width: 300px; height: 300px; }
     .dr-promo { width: 100px; height: 100px; left: -10px; }
+    .dr-promo { 
+        display: none !important; /* Ye discount box ko mobile par gayab kar dega */
+    }
 }
 /* --- PREMIUM ABOUT SECTION --- */
 .premium-about {
@@ -1295,36 +1334,39 @@ html, body {
    RESPONSIVE (Mobile & Tablet)
 ======================================== */
 
-/* Tablets par thoda kareeb */
+/* ========================================
+   RESPONSIVE (Mobile & Tablet) - FIX
+======================================== */
+
+/* Tablets par thoda side gap kam */
 @media (max-width: 1024px) {
     .dr-right-socials-wrapper {
-        right: 20px;
+        right: 15px;
     }
 }
 
-/* Mobile par Bottom Horizontal Strip */
+/* Mobile par bhi Fixed aur Decent alignment */
 @media (max-width: 768px) {
     .dr-right-socials-wrapper {
-        position: relative;
-        right: 0;
-        flex-direction: row;
-        justify-content: center;
-        padding: 40px 0;
-        width: 100%;
-        background: #ffffff;
-        gap: 40px; /* Mobile par buttons ke beech gap zarori hai */
+        position: fixed; /* Relative se wapis Fixed kar diya */
+        right: 10px;    /* Bilkul edge ke paas */
+        bottom: 20px;   /* Niche se thoda oopar */
+        left: auto;     
+        width: auto;
+        background: transparent; /* White box hata diya */
+        gap: 15px;      /* Mobile par icons thode close honge */
     }
 
     .dr-sidebar-line {
-        display: none; /* Mobile par line ki zarorat nahi */
+        display: block; /* Line ko wapis le aaye aesthetic ke liye */
+        height: 40px;   /* Choti line mobile ke liye */
+        margin-top: 5px;
     }
 
     .dr-s-link {
-        font-size: 1.6rem;
+        font-size: 1.2rem; /* Thode chote icons taake screen na gherain */
     }
 }
-
-
 
 
 
