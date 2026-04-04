@@ -446,6 +446,7 @@ html, body {
 
 .j-info h4 { color: var(--dark); font-size: 1.1rem; margin-bottom: 5px; transition: 0.3s; }
 .journey-item:hover h4 { color: var(--blue); }
+.journey-date { color: var(--blue); font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; }
 .j-info p { color: var(--text); font-size: 0.9rem; line-height: 1.5;
           font-family: "Cinzel", serif;
  }
